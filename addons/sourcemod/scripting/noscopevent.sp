@@ -157,13 +157,13 @@ public void OnAutoConfigsBuffered()
 
 public Action awpcontrol(Handle timer)
 {
-    char filename[512];
-    GetPluginFilename(INVALID_HANDLE, filename, sizeof(filename));
-    char mapname[PLATFORM_MAX_PATH];
-    GetCurrentMap(mapname, sizeof(mapname));
-    if (StrContains(mapname, "awp_", false) == -1)
-    {
-        ServerCommand("sm plugins unload %s", filename);
-    }
-    return Plugin_Stop;
+	char filename[512];
+	char mapname[PLATFORM_MAX_PATH];
+	GetPluginFilename(INVALID_HANDLE, filename, sizeof(filename));
+	GetCurrentMap(mapname, sizeof(mapname));
+	if (StrContains(mapname, "awp_", false) == -1)
+	{
+		ServerCommand("sm plugins unload %s", filename);
+	}
+	return Plugin_Stop;
 }
